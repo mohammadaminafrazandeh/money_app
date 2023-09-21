@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:money_app/utils/calculator.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
@@ -10,37 +11,37 @@ class InfoScreen extends StatefulWidget {
 class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: SizedBox(
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Padding(
+              const Padding(
                 padding:
-                    EdgeInsets.only(top: 15, right: 15, left: 5, bottom: 50),
+                    EdgeInsets.only(top: 15, right: 15, left: 5, bottom: 20),
                 child: Text('مدیریت تراکنش ها به تومان',
                     style:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               ),
               MoneyInfoWidget(
                 firstText: 'پرداختی امروز',
-                firstprice: '30',
+                firstprice: Calculate.bToday().toString(),
                 secondText: 'دریافتی امروز',
-                secondprice: '10',
+                secondprice: Calculate.pToday().toString(),
               ),
               MoneyInfoWidget(
                 firstText: 'پرداختی این ماه',
-                firstprice: '900',
+                firstprice: Calculate.pMonth().toString(),
                 secondText: 'دریافتی این ماه',
-                secondprice: '300',
+                secondprice: Calculate.bMonth().toString(),
               ),
               MoneyInfoWidget(
                 firstText: 'پرداختی امسال',
-                firstprice: '18000',
+                firstprice: Calculate.pYear().toString(),
                 secondText: 'دریافتی امسال',
-                secondprice: '3600',
+                secondprice: Calculate.pYear().toString(),
               ),
             ],
           ),
@@ -68,7 +69,7 @@ class MoneyInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 15, left: 5, top: 25, bottom: 70),
+      padding: const EdgeInsets.only(right: 15, left: 5, top: 25, bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
