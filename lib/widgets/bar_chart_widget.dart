@@ -1,9 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import 'package:money_app/utils/calculator.dart';
+import 'package:money_app/utils/extention.dart';
 
 class BarChartWidget extends StatelessWidget {
-  const BarChartWidget({super.key});
+  var fontsizeText;
+  BarChartWidget({
+    Key? key,
+    required this.fontsizeText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +53,7 @@ class BarChartWidget extends StatelessWidget {
     final style = TextStyle(
       color: AppColors.contentColorBlue.darken(20),
       fontWeight: FontWeight.bold,
-      fontSize: 7,
+      fontSize: fontsizeText,
     );
     String text;
 
@@ -91,7 +98,7 @@ class BarChartWidget extends StatelessWidget {
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
-            reservedSize: 30,
+            reservedSize: 60,
             getTitlesWidget: getTitles,
           ),
         ),

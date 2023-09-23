@@ -5,7 +5,6 @@ import 'package:money_app/consts/constant.dart';
 import 'package:money_app/models/money.dart';
 import 'package:money_app/screens/main.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class NewTransActionScreen extends StatefulWidget {
   const NewTransActionScreen({super.key});

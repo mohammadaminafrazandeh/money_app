@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_app/utils/calculator.dart';
+import 'package:money_app/utils/extention.dart';
 import 'package:money_app/widgets/bar_chart_widget.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -12,22 +13,29 @@ class InfoScreen extends StatefulWidget {
 class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
+    print(ScreenSize(context).screenWidth);
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
           width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(
-                  top: 15,
-                  right: 15,
-                  left: 5,
-                ),
-                child: Text('مدیریت تراکنش ها به تومان',
-                    style:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 15,
+                      right: 15,
+                      left: 5,
+                    ),
+                    child: Text('مدیریت تراکنش ها به تومان',
+                        style:
+                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  ),
+                ],
               ),
               MoneyInfoWidget(
                 firstText: 'پرداختی امروز',
@@ -48,10 +56,11 @@ class _InfoScreenState extends State<InfoScreen> {
                 secondprice: Calculate.pYear().toString(),
               ),
               const SizedBox(height: 50),
-              Container(
-                height: 200,
-                padding: EdgeInsets.all(30),
-                child: BarChartWidget(),
+              SizedBox(
+                height: ScreenSize(context).screenHeight*0.5,
+                child: BarChartWidget(
+                    fontsizeText: ScreenSize(context).screenWidth < 903.6 ? 9 : ScreenSize(context).screenWidth * 0.01
+),
               )
             ],
           ),
