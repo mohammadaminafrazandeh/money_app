@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_app/utils/calculator.dart';
+import 'package:money_app/widgets/bar_chart_widget.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
@@ -19,8 +20,11 @@ class _InfoScreenState extends State<InfoScreen> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const Padding(
-                padding:
-                    EdgeInsets.only(top: 15, right: 15, left: 5, bottom: 20),
+                padding: EdgeInsets.only(
+                  top: 15,
+                  right: 15,
+                  left: 5,
+                ),
                 child: Text('مدیریت تراکنش ها به تومان',
                     style:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
@@ -43,6 +47,12 @@ class _InfoScreenState extends State<InfoScreen> {
                 secondText: 'دریافتی امسال',
                 secondprice: Calculate.pYear().toString(),
               ),
+              const SizedBox(height: 50),
+              Container(
+                height: 200,
+                padding: EdgeInsets.all(30),
+                child: BarChartWidget(),
+              )
             ],
           ),
         ),
