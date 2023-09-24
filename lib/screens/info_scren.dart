@@ -18,7 +18,6 @@ class _InfoScreenState extends State<InfoScreen> {
       child: Scaffold(
         body: SizedBox(
           width: double.infinity,
-          
           child: ListView(
             // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -32,8 +31,8 @@ class _InfoScreenState extends State<InfoScreen> {
                       left: 5,
                     ),
                     child: Text('مدیریت تراکنش ها به تومان',
-                        style:
-                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
@@ -57,10 +56,11 @@ class _InfoScreenState extends State<InfoScreen> {
               ),
               const SizedBox(height: 50),
               SizedBox(
-                height: ScreenSize(context).screenHeight*0.5,
+                height: ScreenSize(context).screenHeight * 0.5,
                 child: BarChartWidget(
-                    fontsizeText: ScreenSize(context).screenWidth < 903.6 ? 9 : ScreenSize(context).screenWidth * 0.01
-),
+                    fontsizeText: ScreenSize(context).screenWidth < 903.6
+                        ? 9.0
+                        : ScreenSize(context).screenWidth * 0.01),
               )
             ],
           ),
